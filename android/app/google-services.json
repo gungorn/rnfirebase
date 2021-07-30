@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "707478664593",
+    "firebase_url": "https://rnfirebasekodluyoruz-default-rtdb.firebaseio.com",
+    "project_id": "rnfirebasekodluyoruz",
+    "storage_bucket": "rnfirebasekodluyoruz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707478664593:android:6daf9b8048e76932951630",
+        "android_client_info": {
+          "package_name": "com.rnfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707478664593-3ed8ndadi2tca7u2uto0pvp5ujt2d8bb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfM6OEXpYoqlNZIqBA9f7L6liKmhYN9uQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707478664593-3ed8ndadi2tca7u2uto0pvp5ujt2d8bb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "707478664593-i57n242ukaq5h6sq966rca5omdfrd558.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rnfirebase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
