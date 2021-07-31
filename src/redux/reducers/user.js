@@ -2,7 +2,8 @@ import { USER_LOGIN, USER_SIGNIN } from '../types';
 
 
 const initialState = {
-    uid: ''
+    uid: '',
+    x: false
 };
 
 export const user = (state = initialState, { type, payload }) => {

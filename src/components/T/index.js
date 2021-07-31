@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TextPropTypes } from 'react-native';
 import propTypes from 'prop-types';
-import { fontFamily, fontSize } from '~/configs';
+import { fontFamily, fontSize } from '~configs';
 
 export const T = props => {
     const { children, font, size , style} = props;

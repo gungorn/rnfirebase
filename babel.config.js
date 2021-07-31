@@ -19,6 +19,10 @@ module.exports = {
             rootPathSuffix: './src/assets/index'
           },
           {
+            rootPathPrefix: '~request/*',
+            rootPathSuffix: './src/request/*'
+          },
+          {
             rootPathPrefix: '~components',
             rootPathSuffix: './src/components/index'
           },

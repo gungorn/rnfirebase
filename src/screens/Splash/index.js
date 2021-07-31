@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, LayoutAnimation } from 'react-native';
 import { connect } from 'react-redux';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -42,7 +42,7 @@ const Splash = conectWithRedux(props => {
     //user store
     const { user } = props;
 
-    const submit = () => isSignIn ? props.USER_SIGNIN(eposta, parola) : props.USER_LOGIN();
+    const submit = () => isSignIn ? props.USER_SIGNIN(email, password) : props.USER_LOGIN();
 
     const styles = isSignIn ? stylesForSignIn : stylesForLogin;
 
@@ -51,9 +51,9 @@ const Splash = conectWithRedux(props => {
             <T style={styles.appName} font={'b'} size={'xxxxxl'}>My Note</T>
 
             <View style={styles.inputsContainer}>
-                {isSignIn &&
+                {
                     <TextInput
-                        style={styles.nameInput}
+                        style={[styles.nameInput, { display: isSignIn ? 'flex' : 'none' }]}
                         placeholder={'İsminiz'}
                         value={name}
                         onChangeText={setName}
@@ -78,9 +78,9 @@ const Splash = conectWithRedux(props => {
                     maxLength={16}
                 />
 
-                {isSignIn &&
+                {
                     <TextInput
-                        style={styles.passwordInput2}
+                        style={[styles.passwordInput2, { display: isSignIn ? 'flex' : 'none' }]}
                         placeholder={'Tekrar'}
                         value={password2}
                         onChangeText={setPassword2}
@@ -94,7 +94,13 @@ const Splash = conectWithRedux(props => {
                 <T style={styles.submitButtonText} font={'b'} size={'l'}>{isSignIn ? 'Üye Ol' : 'Giriş Yap'}</T>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => setIsSignIn(!isSignIn)} style={styles.signInButton}>
+            <TouchableOpacity
+                onPress={() => {
+                    //LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+                    setIsSignIn(!isSignIn);
+                }}
+                style={styles.signInButton}
+            >
                 {isSignIn && <AntDesign name={'left'} size={16} color={COLOR('lightGray')} />}
                 <T style={styles.signInButtonText}>{isSignIn ? 'Zaten Üyeyim' : 'Üye Ol'}</T>
             </TouchableOpacity>

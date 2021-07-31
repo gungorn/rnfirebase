@@ -1,9 +1,9 @@
 import * as types from '../types';
 
-export const KEYBOARD_OPEN = ({ endCoordinates: { height } }) => {
+export const KEYBOARD_OPEN = (data) => {
     return {
         type: types.KEYBOARD_OPEN,
-        payload: height
+        payload: null
     };
 };
 

@@ -1,5 +1,5 @@
-import { light } from '~/theme';
-import { SET_THEME } from '../types';
+import { light } from '~theme';
+import { SET_THEME, USER_LOGIN } from '../types';
 
 
 const initialState = {

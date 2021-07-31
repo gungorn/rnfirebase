@@ -13,11 +13,14 @@
             "~assets": [
                 "./src/assets/index"
             ],
+            "~request/*": [
+                "./src/request/*"
+            ],
             "~components": [
                 "./src/components/index"
             ],
-            "~configs/*": [
-                "./src/configs/*"
+            "~configs": [
+                "./src/configs/index"
             ],
             "~utils/*": [
                 "./src/utils/*"

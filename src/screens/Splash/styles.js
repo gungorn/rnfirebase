@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { COLOR } from "~/utils/theme";
 
 export const stylesForLogin = StyleSheet.create({
     main: {
@@ -20,7 +21,7 @@ export const stylesForLogin = StyleSheet.create({
     emailInput: {
         width: '80%',
         borderWidth: 1,
-        borderColor: '#44444433',
+        borderColor: COLOR('blue'),
         borderTopLeftRadius: 10,
         borderTopRightRadius: 3,
         borderBottomLeftRadius: 2,
@@ -31,7 +32,7 @@ export const stylesForLogin = StyleSheet.create({
     passwordInput: {
         width: '80%',
         borderWidth: 1,
-        borderColor: '#44444433',
+        borderColor: COLOR('blue'),
         borderBottomRightRadius: 10,
         borderBottomLeftRadius: 3,
         borderTopLeftRadius: 2,
@@ -91,7 +92,7 @@ export const stylesForSignIn = StyleSheet.create({
     nameInput: {
         width: '80%',
         borderWidth: 1,
-        borderColor: '#44444433',
+        borderColor: COLOR('blue'),
         borderTopLeftRadius: 10,
         borderTopRightRadius: 3,
         borderBottomLeftRadius: 2,
@@ -102,7 +103,7 @@ export const stylesForSignIn = StyleSheet.create({
     emailInput: {
         width: '80%',
         borderWidth: 1,
-        borderColor: '#44444433',
+        borderColor: COLOR('blue'),
         borderRadius: 3,
         paddingHorizontal: 10,
         marginTop: 10,
@@ -111,7 +112,7 @@ export const stylesForSignIn = StyleSheet.create({
     passwordInput: {
         width: '80%',
         borderWidth: 1,
-        borderColor: '#44444433',
+        borderColor: COLOR('blue'),
         borderRadius: 3,
         marginTop: 10,
         paddingHorizontal: 10
@@ -119,7 +120,7 @@ export const stylesForSignIn = StyleSheet.create({
     passwordInput2: {
         width: '80%',
         borderWidth: 1,
-        borderColor: '#44444433',
+        borderColor: COLOR('blue'),
         borderBottomRightRadius: 10,
         borderBottomLeftRadius: 3,
         borderTopLeftRadius: 2,
