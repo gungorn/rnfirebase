@@ -44,10 +44,6 @@ export const stylesForLogin = StyleSheet.create({
     submitButton: {
         borderRadius: 10,
         width: '60%',
-        backgroundColor: '#42a5f5',
-        paddingVertical: 12,
-        justifyContent: 'center',
-        alignItems: 'center',
         marginTop: 20
     },
     submitButtonText: {
@@ -132,10 +128,6 @@ export const stylesForSignIn = StyleSheet.create({
     submitButton: {
         borderRadius: 10,
         width: '60%',
-        backgroundColor: '#42a5f5',
-        paddingVertical: 12,
-        justifyContent: 'center',
-        alignItems: 'center',
         marginTop: 20
     },
     submitButtonText: {

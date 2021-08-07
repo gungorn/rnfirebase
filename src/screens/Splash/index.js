@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, LayoutAnimation } from 'react-native';
+import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import { KEYBOARD_OPEN, KEYBOARD_CLOSE, USER_LOGIN, USER_SIGNIN } from '~redux'; //user actions
+import { KEYBOARD_OPEN, KEYBOARD_CLOSE, USER_LOGIN, USER_SIGNIN, SET_IS_SIGN } from '~redux'; //user actions
 
 import { stylesForLogin, stylesForSignIn } from './styles';
 import { COLOR } from '~/utils/theme';
@@ -16,8 +17,9 @@ const mapStateToProps = ({ user }) => ({ user });
 
 //redux dispatch to props
 const mapDispatchToProps = dispatch => ({
-    USER_LOGIN: () => dispatch(USER_LOGIN()), //action
-    USER_SIGNIN: (eposta, parola) => dispatch(USER_SIGNIN(eposta, parola)), //action
+    SET_IS_SIGN: payload => dispatch(SET_IS_SIGN(payload)), //action
+    USER_LOGIN: payload => dispatch(USER_LOGIN(payload)), //action
+    USER_SIGNIN: payload => dispatch(USER_SIGNIN(payload)), //action
     KEYBOARD_OPEN: h => dispatch(KEYBOARD_OPEN(h)), //action
     KEYBOARD_CLOSE: () => dispatch(KEYBOARD_CLOSE()), //action
 });
@@ -33,7 +35,6 @@ const Splash = conectWithRedux(props => {
     }, []);
 
     //states
-    const [isSignIn, setIsSignIn] = useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -41,8 +42,14 @@ const Splash = conectWithRedux(props => {
 
     //user store
     const { user } = props;
+    const { loginLoading, signInLoading, isSignIn } = user;
 
-    const submit = () => isSignIn ? props.USER_SIGNIN(email, password) : props.USER_LOGIN();
+    const submit = () => {
+        isSignIn ?
+            props.USER_SIGNIN({ email, password, name }) :
+            props.USER_LOGIN({ email, password });
+    }
+
 
     const styles = isSignIn ? stylesForSignIn : stylesForLogin;
 
@@ -67,6 +74,7 @@ const Splash = conectWithRedux(props => {
                     value={email}
                     onChangeText={setEmail}
                     maxLength={64}
+                    keyboardType={'email-address'}
                 />
 
                 <TextInput
@@ -90,14 +98,20 @@ const Splash = conectWithRedux(props => {
                 }
             </View>
 
-            <TouchableOpacity onPress={submit} style={styles.submitButton}>
-                <T style={styles.submitButtonText} font={'b'} size={'l'}>{isSignIn ? 'Üye Ol' : 'Giriş Yap'}</T>
-            </TouchableOpacity>
+            <Button
+                type={'solid'}
+                onPress={submit}
+                loading={loginLoading || signInLoading}
+                containerStyle={styles.submitButton}
+                buttonStyle={{ backgroundColor: '#42a5f5' }}
+                //titleStyle={{ textAlign: 'center', flex: 1 }}
+                title={isSignIn ? 'Üye Ol' : 'Giriş Yap'}
+            />
 
             <TouchableOpacity
                 onPress={() => {
-                    //LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-                    setIsSignIn(!isSignIn);
+                    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+                    props.SET_IS_SIGN(!isSignIn);
                 }}
                 style={styles.signInButton}
             >
